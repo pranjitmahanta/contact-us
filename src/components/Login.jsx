@@ -35,9 +35,22 @@ const Login = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
+
+    if (password !== confirmPassword) {
+      alert("Passwords do not match!");
+      return;
+    }
+    if (password == "") {
+      alert("Password canot be empty");
+      return;
+    }
+    if (password.length < 6) {
+      alert("Password cannot be less than 6 letters");
+      return;
+    }
+
     console.log("Login Details:", { name, email, password, confirmPassword });
   };
-
   return (
     <div className="login-main">
       <div className="login-left">
