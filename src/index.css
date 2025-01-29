@@ -183,3 +183,14 @@ form input[type='text'] {
   color: red;
   font-size: 1.4rem;
 }
+/* Success Message */
+.success-message {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 5px;
+  font-weight: bold;
+}

@@ -8,6 +8,7 @@ const ContactUs = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [messageError, setMessageError] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -16,9 +17,15 @@ const ContactUs = () => {
       setMessageError("Message cannot be empty");
       return;
     }
-    
+
     console.log("Form Details:", { name, email, message });
     setMessageError("");
+    setSuccessMessage("Message sent successfully!");
+
+    // Clear form fields after successful submission
+    setName("");
+    setEmail("");
+    setMessage("");
   };
 
   return (
@@ -51,23 +58,25 @@ const ContactUs = () => {
               />
               <div className="form-group">
                 <textarea
-                id="message"
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                className="form-input"
-                placeholder="Enter your message"
+                  id="message"
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  className="form-input"
+                  placeholder="Enter your message"
                 ></textarea>
                 {messageError && <span className="error-text">{messageError}</span>}
-                </div>
+              </div>
 
               <div className="login-center-buttons">
                 <button type="submit" className="login-button">Send Message</button>
                 <button type="button" className="google-login-button">
                   <img src={GoogleSvg} alt="Google" />
-                  Contact Via Google
+                  Contact Via Gmail
                 </button>
               </div>
             </form>
+
+            {successMessage && <div className="success-message">{successMessage}</div>}
           </div>
         </div>
       </div>
